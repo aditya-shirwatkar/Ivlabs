@@ -23,7 +23,6 @@ int main() {
 
     int s = min_step(a,n);
 
-
     cout << endl << "Minimum number of steps I took was " << s << endl;
     delete[] a;
     return 0;
