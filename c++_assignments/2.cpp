@@ -32,7 +32,7 @@ int best_step( int a[], int i, int t, int n) {
     int m = 0, l;
 
     l = min( t+i , n-1 );
-
+		//this finds the element that will give the maximum range to make jumps
     for ( size_t j = i+1; j <= l; j++ ) {
         if( m <= a[j] ) {
             m = a[j];
@@ -50,7 +50,7 @@ int min_step( int a[], int n) {
         if ( i < n-1 && (t+i) < n) { //if we are less than last number we run the following
 
             i = best_step(a,i,t,n);
-            t = a[i];
+            t = a[i]; 
             s++;
 
         }
