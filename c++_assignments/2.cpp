@@ -1,3 +1,5 @@
+/* my algo works on the intuition that finding the element with the maximum range of jump will lead to minimum jumps*/
+
 #include <iostream>
 using namespace std;
 
@@ -32,7 +34,7 @@ int best_step( int a[], int i, int t, int n) {
     int m = 0, l;
 
     l = min( t+i , n-1 );
-	//this finds the element that will give the maximum range to make jumps
+//this finds the element that will give the maximum range to make jumps
     for ( size_t j = i+1; j <= l; j++ ) {
         if( m <= a[j] ) {
             m = a[j];
