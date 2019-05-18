@@ -3,7 +3,7 @@ using namespace std;
 
 #define min(x,y) (x>y)?y:x //macros for minimum of 2 nos
 
-int best_step( int a[], int i, int t, int n); //function for finding best step from i+1 to i+k
+int best_jump( int a[], int i, int t, int n); //function for finding best step from i+1 to i+k
 
 int min_step( int a[], int n); //function that returns minimum number of steps
 
@@ -29,7 +29,7 @@ int main() {
     return 0;
 }
 
-int best_step( int a[], int i, int t, int n) {
+int best_jump( int a[], int i, int t, int n) {
 
     int m = 0, l;
 
@@ -53,7 +53,7 @@ int min_step( int a[], int n) {
 
         if ((t+i) < n - 1) { //if our range is less than last number we run the following
 
-            i = best_step(a,i,t,n);
+            i = best_jump(a,i,t,n);
             t = a[i];
             s++;
 
