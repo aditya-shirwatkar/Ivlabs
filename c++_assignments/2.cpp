@@ -3,7 +3,7 @@ using namespace std;
 
 #define min(x,y) (x>y)?y:x //macros for minimum of 2 nos
 
-int best_jump( int a[], int i, int t, int n); //function for finding best step from i+1 to i+k
+int best_step( int a[], int i, int n); //function for finding best step from i+1 to i+a[i]
 
 int min_step( int a[], int n); //function that returns minimum number of steps
 
@@ -29,11 +29,11 @@ int main() {
     return 0;
 }
 
-int best_jump( int a[], int i, int t, int n) {
+int best_step( int a[], int i, int n) {
 
     int m = 0, l;
 
-    l = min( t+i , n-1 );
+    l = min( a[i]+i , n-1 );
 
     for ( size_t j = i+1; j <= l; j++ ) { //for finding element with max range of jump
         if( m <= a[j] ) {
@@ -47,14 +47,13 @@ int best_jump( int a[], int i, int t, int n) {
 
 int min_step( int a[], int n) {
 
-    int i = 0, t = a[i] , s = 0;
+    int i = 0, s = 0;
 
     while ( i < n - 1 ) {
 
-        if ((t+i) < n - 1) { //if our range is less than last number we run the following
+        if ((a[i]+i) < n - 1) { //if our range is less than last number we run the following
 
-            i = best_jump(a,i,t,n);
-            t = a[i];
+            i = best_step(a,i,n);
             s++;
 
         }
@@ -63,7 +62,7 @@ int min_step( int a[], int n) {
             break; //the last number is reached
         }
 
-        if( t == 0 ) {
+        if( a[i] == 0 ) {
             cout << "I am stuck at 0 help me :("; //an exception if stuck at 0
             return 0;
         }
